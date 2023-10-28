@@ -1,10 +1,10 @@
 import { Router } from "express";
-import { getTodosEstadosController } from "../controllers/estados-controllers.js";
+import { getTodasRegioesController, getTodosEstadosController } from "../controllers/estados-controllers.js";
 
 const estadosRouter = Router()
 
 estadosRouter.get("/estados", getTodosEstadosController)
-//estadosRouter.get("/regiao")
+estadosRouter.get("/regioes", getTodasRegioesController)
 
 
 export default estadosRouter
