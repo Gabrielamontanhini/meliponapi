@@ -1,14 +1,14 @@
 import { db } from "../database/database-connection.js";
 
 export async function getTodasAbelhasDB(){
-    const result = await db.query(`SELECT an.id, an.nome_cientifico, an.nome_popular, STRING_AGG(eb.sigla, ', ') AS estados
+    const result = await db.query(`SELECT * FROM abelhas_nativas;`)
+    return result
+}
+/**SELECT an.id, an.nome_cientifico, an.nome_popular, STRING_AGG(eb.sigla, ', ') AS estados
     FROM abelhas_nativas an
     JOIN abelhas_ocorrencia ao ON an.id = ao.id_abelha
     JOIN estados_brasileiros eb ON ao.id_estado = eb.id
-    GROUP BY an.id, an.nome_cientifico;    
-    `)
-    return result
-}
+    GROUP BY an.id, an.nome_cientifico;  */
 
 export async function getAbelhaPorIdDB(id){
     const result = await db.query(`SELECT
