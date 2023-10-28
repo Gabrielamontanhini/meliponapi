@@ -15,12 +15,12 @@ export async function getAbelhaPorIdDB(id){
     an.id AS id_abelha,
     an.nome_cientifico,
     STRING_AGG(eb.sigla, ', ') AS estados,
-    STRING_AGG(DISTINCT rb.região, ', ') AS regiões
+    STRING_AGG(DISTINCT rb.regiao, ', ') AS regioes
 FROM abelhas_nativas an
-LEFT JOIN abelhas_ocorrencia ao ON an.id = ao.id_abelha
+LEFT JOIN abelha_ocorrencia ao ON an.id = ao.id_abelha
 LEFT JOIN estados_brasileiros eb ON ao.id_estado = eb.id
-LEFT JOIN estados_regiões er ON eb.id = er.id_estado
-LEFT JOIN regiões rb ON er.id_região = rb.id
+LEFT JOIN estado_regiao er ON eb.id = er.id_estado
+LEFT JOIN regiao_brasil rb ON er.id_regiao = rb.id
 WHERE an.id = $1
 GROUP BY an.id, an.nome_cientifico;`, [id])
 
