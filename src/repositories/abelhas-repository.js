@@ -13,7 +13,7 @@ export async function getTodasAbelhasDB(){
 export async function getAbelhaPorIdDB(id){
     const result = await db.query(`SELECT
     an.id AS id_abelha,
-    an.nome_cientifico,
+    an.nome_cientifico, an.nome_popular,
     STRING_AGG(eb.sigla, ', ') AS estados,
     STRING_AGG(DISTINCT rb.regiao, ', ') AS regioes
 FROM abelhas_nativas an
