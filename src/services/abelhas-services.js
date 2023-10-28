@@ -1,4 +1,4 @@
-import { getAbelhaPorIdDB, getAbelhaPorNomeParamDB, getAbelhasPorEstadoDB, getTodasAbelhasDB } from "../repositories/abelhas-repository.js";
+import { getAbelhaPorIdDB, getAbelhaPorNomeParamDB, getAbelhasPorEstadoDB, getTodasAbelhasDB, updateNomePopularDB } from "../repositories/abelhas-repository.js";
 
 export async function getTodasAbelhasService(nome){
     if (!nome) return await getTodasAbelhasDB()
@@ -12,4 +12,8 @@ export async function getAbelhaPorIdService(id){
 
 export async function getAbelhasPorEstadoService(sigla){
     return await getAbelhasPorEstadoDB(sigla)
+}
+
+export async function updateNomePopularService(nome, id){
+    await updateNomePopularDB(nome, id)
 }

@@ -51,3 +51,9 @@ export async function getAbelhaPorNomeParamDB(nome){
     `, [nome])
       return result
 }
+
+export async function updateNomePopularDB(nome, id){
+    await db.query(`UPDATE abelhas_nativas
+    SET nome_popular = $1
+    WHERE id = $2;`, [nome, id])
+}
