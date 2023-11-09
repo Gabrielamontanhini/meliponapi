@@ -4,7 +4,7 @@
 
 A MeliponAPI é uma API que fornece informações sobre abelhas nativas sem ferrão no Brasil.
 Os dados utilizados foram adquiridos do **Instituto Chico Mendes de Conservação da Biodiversidade** através da **Portaria nº 665, de 3 de novembro de 2021**, que institui o
-*Catálogo Nacional de Abelhas-Nativas-SemFerrão* no âmbito do processo **02070.004380/2020-13**.
+*Catálogo Nacional de Abelhas-Nativas-Sem Ferrão* no âmbito do processo **02070.004380/2020-13**.
 
 ## Recursos Disponíveis de get
 
