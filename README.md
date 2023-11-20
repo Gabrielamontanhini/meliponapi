@@ -1,55 +1,64 @@
 # MeliponAPI
-
-## Sobre
-
 A MeliponAPI é uma API que fornece informações sobre abelhas nativas sem ferrão no Brasil.
 Os dados utilizados foram adquiridos do **Instituto Chico Mendes de Conservação da Biodiversidade** através da **Portaria nº 665, de 3 de novembro de 2021**, que institui o
 *Catálogo Nacional de Abelhas-Nativas-Sem Ferrão* no âmbito do processo **02070.004380/2020-13**.
 
-## Recursos Disponíveis de get
 
-### get /abelhas
+# Demo
+O link base da MeliponAPI é [https://meliponapi-api.onrender.com](https://meliponapi-api.onrender.com
 
-- Rota principal para obter informações sobre as abelhas nativas sem ferrão.
-- Retorna um array de objetos no formato: {
-                                            "id": número do id,
-                                            "nome_cientifico": "Nome da abelha",
-                                            "nome_popular": pode ser nulo,
-                                            "estados": Siglas dos estados de ocorrência
-                                            } .
-- Aceita uma query string `?nome=` para pesquisar abelhas por nome científico ou popular. Retorna um array de objetos, se houver resultados, no formato:  {
-                                            "id": número do id,
-                                            "nome_cientifico": "Nome da abelha",
-                                            "nome_popular": pode ser nulo,
-                                            "estados": Siglas dos estados de ocorrência
-                                            }
+# Como funciona?
+Este projeto é uma API REST para atender a aplicação de abelhas nativas sem ferrão no Brasil. Ela possui dados sobre as abelhas com as seguintes rotas:
 
-### get /abelhas/:id
 
-- Rota para buscar informações sobre uma abelha específica com base em seu ID. Retorna um array com um objeto no formato: [
-  {
-    "id_abelha": 12,
-    "nome_cientifico": "Tetragona clavipes",
-    "estados": "AC, AM, RO, AP, RR, PA, MA, PI, MT, SE, BA, GO, GO, DF, MG, MS, ES, RJ, RJ, SP, PR, PR, SC, RS",
-    "regioes": "Centro-Oeste, Nordeste, Norte, Sudeste, Sul"
-  }
-]
+- GET `/abelhas`: Retorna todas as notícias cadastradas, em um array de objetos, e aceita uma query string `?nome=` para pesquisar abelhas por nome científico ou popular. Retorna um array de objetos no formato a seguir:
 
-### get /abelhas/estados/:sigla
+  
+- GET `/abelhas/:id`: Rota para buscar informações sobre uma abelha específica com base em seu ID. Retorna um array com um objeto com o seguinte formato:
 
-- Rota que retorna abelhas que ocorrem em um estado específico com base na sigla do estado. Retorna um array com objetos , no seguinte formado: [
-  {
-    "abelha_id": 3,
-    "nome_cientifico": "Trigona pallens"
-  },
-  {
-    "abelha_id": 6,
-    "nome_cientifico": "Tetragonisca fiebrigi"
-  }]
-## Avisos
 
-Esta é uma API em expansão e está atualmente em fase experimental. Além disso, este é um deploy gratuito e, portanto, pode estar sujeito a limitações.
+ ```
+{
+ "id": number
+ "nome_cientifico": string
+ "nome_popular": string
+ "estados": string || null
+}
+```
 
-## Base URL
+- GET `/abelhas/estado/:sigla`: Rota que retorna abelhas que ocorrem em um estado específico com base na sigla do estado. Retorna um array com objetos , no seguinte formado:
 
-O link base da MeliponAPI é [https://meliponapi-api.onrender.com](https://meliponapi-api.onrender.com).
+   ```
+{
+ "abelha_id": number
+ "nome_cientifico": string
+}
+```
+
+
+# Motivação
+Este projeto foi feito para praticar a construção de uma API REST usando o ecossistema Node e Express e ajudar na identificação de abelhas em ocorrência nos estados.
+
+# Tecnologias utilizadas
+Para este projeto, foram utilizadas:
+
+- Node (versão 20.9.0);
+- Express;
+- Postgres;
+- Redis;
+
+
+# Como rodar em desenvolvimento
+Para executar este projeto em desenvolvimento, é necessário seguir os passos abaixo:
+
+- Clonar o repositório;
+- Baixar as dependências necessárias com o comando: `npm install`;
+- Em seguida, criar o arquivo `.env`;
+- Este arquivo `.env` é composto pelas seguintes propriedades:
+```
+  DATABASE_URL="postgresql://postgres..."
+```
+- A propriedade `DATABASE_URL` é usada para fazer a conexão com o banco de dados.
+- Para rodar o projeto em desenvolvimento, execute o comando `npm run dev`;
+- Adicione as abelhas diretamente no banco para consultá-las
+
