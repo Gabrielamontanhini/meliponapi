@@ -28,7 +28,7 @@ Este projeto é uma API REST para atender a aplicação de abelhas nativas sem f
 
 - GET `/abelhas/estado/:sigla`: Rota que retorna abelhas que ocorrem em um estado específico com base na sigla do estado. Retorna um array com objetos , no seguinte formado:
 
-   ```
+```
 {
  "abelha_id": number
  "nome_cientifico": string
