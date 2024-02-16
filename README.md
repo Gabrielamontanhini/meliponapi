@@ -45,7 +45,6 @@ Para este projeto, foram utilizadas:
 - Node (versão 20.9.0);
 - Express;
 - Postgres;
-- Redis;
 
 
 # Como rodar em desenvolvimento
